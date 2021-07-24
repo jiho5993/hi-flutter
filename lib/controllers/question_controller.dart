@@ -1,8 +1,9 @@
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:quiz_app/models/Questions.dart';
+import 'package:quiz_app/screens/score/score_screen.dart';
 
 class QuestionController extends GetxController with SingleGetTickerProviderMixin {
   // Lets animated our progress bar
@@ -100,6 +101,9 @@ class QuestionController extends GetxController with SingleGetTickerProviderMixi
       // Then start it again
       // Once timer is finish go to the next question
       _animationController.forward().whenComplete(nextQuestion);
+    }
+    else {
+      Get.to(ScoreScreen());
     }
   }
 
